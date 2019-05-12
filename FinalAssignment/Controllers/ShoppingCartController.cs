@@ -44,7 +44,7 @@ namespace FinalAssignment.Controllers
 
         public RedirectToActionResult RemoveFromShoppingCart(int productId)
         {
-            var selectedProduct = _productRepository.Products.FirstOrDefault(p => p.Id == productId);
+            var selectedProduct = _productRepository.GetProductById(productId);
             if (selectedProduct != null)
             {
                 _shoppingCart.RemoveFromCart(selectedProduct);
