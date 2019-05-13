@@ -51,7 +51,7 @@
                 @Html.DisplayFor(modelItem => item.ReleaseDate)
             </td>
             <td>
-                <a asp-action="AddToShoppingCart" asp-controller="ShoppingCart" asp-route-productId="@item.Id">
+                <a class="btn btn-dark" asp-action="AddToShoppingCart" asp-controller="ShoppingCart" asp-route-productId="@item.Id">
                     Add to cart
                 </a>
             </td>

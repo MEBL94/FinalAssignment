@@ -13,6 +13,7 @@ namespace FinalAssignment.Models
         public double Price { get; set; }
         public string Manufacturer { get; set; }
         public int Rating { get; set; }
+
         [Display(Name = "Release Date")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime ReleaseDate { get; set; }
