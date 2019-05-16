@@ -4,13 +4,13 @@
     <h2>Your shopping cart</h2>
     <table class="table table-bordered table-striped">
         <thead>
-            <tr>
-                <th>Selected amount</th>
-                <th class="text-center">Game</th>
-                <th class="text-right">Price</th>
-                <th class="text-right">Subtotal</th>
-                <th class="text-center">Remove item</th>
-            </tr>
+        <tr>
+            <th>Selected amount</th>
+            <th class="text-center">Game</th>
+            <th class="text-right">Price</th>
+            <th class="text-right">Subtotal</th>
+            <th class="text-center">Remove item</th>
+        </tr>
         </thead>
         <tbody>
         @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
@@ -37,4 +37,9 @@
         </tr>
         </tfoot>
     </table>
+    <br />
+    @if (Model.ShoppingCartTotal > 0)
+    {
+        <a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Check out</a>
+    }
 </div>
