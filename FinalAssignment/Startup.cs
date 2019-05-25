@@ -14,6 +14,8 @@ using FinalAssignment.Data;
 using FinalAssignment.Data.Interfaces;
 using FinalAssignment.Data.Repositories;
 using FinalAssignment.Models;
+using FinalAssignment.Models.EmailLogic;
+using FinalAssignment.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -52,6 +54,8 @@ namespace FinalAssignment
             services.AddTransient<IOrderRepository, OrderRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddSingleton<IEmailConfiguration>(Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>());
+            services.AddTransient<IEmailService, EmailService>();
 
             services.AddMemoryCache();
             services.AddSession();

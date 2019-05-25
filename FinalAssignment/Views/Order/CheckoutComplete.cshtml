@@ -1,3 +1,38 @@
-﻿<h1>
+﻿@model FinalAssignment.ViewModels.ShoppingCartViewModel
+
+<h1>
     @ViewBag.CheckoutCompleteMessage
 </h1>
+<p>You have ordered the following products:</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Selected amount</th>
+        <th class="text-center">Game title</th>
+        <th class="text-right">Price</th>
+        <th class="text-right">Subtotal</th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
+         {
+             <tr>
+                 <td class="text-center">@item.Amount</td>
+                 <td class="text-left">@item.Product.Title</td>
+                 <td class="text-right">@item.Product.Price.ToString("c")</td>
+                 <td class="text-right">
+                     @((item.Amount * item.Product.Price).ToString("c"))
+                 </td>
+             </tr>
+         }
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="3" class="text-right">Total:</td>
+        <td class="text-right">
+            @Model.ShoppingCartTotal.ToString("c")
+        </td>
+    </tr>
+    </tfoot>
+</table>
