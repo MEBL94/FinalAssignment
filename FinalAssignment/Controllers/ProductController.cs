@@ -66,7 +66,7 @@ namespace FinalAssignment.Controllers
         }
 
         // GET: Product/Edit/5
-        public async Task<IActionResult> Edit(long? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -86,7 +86,7 @@ namespace FinalAssignment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("Id,Title,Price,Manufacturer,Rating,ReleaseDate")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Price,Manufacturer,Rating,ReleaseDate")] Product product)
         {
             if (id != product.Id)
             {
@@ -117,7 +117,7 @@ namespace FinalAssignment.Controllers
         }
 
         // GET: Product/Delete/5
-        public async Task<IActionResult> Delete(long? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -137,7 +137,7 @@ namespace FinalAssignment.Controllers
         // POST: Product/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var product = await _context.Products.FindAsync(id);
             _context.Products.Remove(product);
@@ -145,7 +145,7 @@ namespace FinalAssignment.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProductExists(long id)
+        private bool ProductExists(int id)
         {
             return _context.Products.Any(e => e.Id == id);
         }
